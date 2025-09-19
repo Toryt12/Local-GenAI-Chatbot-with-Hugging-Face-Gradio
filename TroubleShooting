@@ -1,0 +1,33 @@
+## 🛠️ Troubleshooting Summary
+
+This project involved building a local chatbot using Hugging Face Transformers and deploying it with Gradio. Along the way, I encountered and resolved several technical challenges that strengthened my debugging and deployment skills.
+
+### ✅ Key Issues & Fixes
+
+- **OpenAI API Errors**  
+  Initially attempted to use OpenAI’s API, but ran into authentication and quota issues. Pivoted to Hugging Face’s open-source models for full local control and transparency.
+
+- **Model Loading Failures**  
+  Faced errors when loading Hugging Face models due to missing dependencies and incorrect pipeline usage. Resolved by:
+  - Installing `transformers`, `torch`, and `sentencepiece`
+  - Using `pipeline("text-generation", model="...")` with correct model names
+
+- **Gradio Interface Crashes**  
+  Early Gradio versions caused UI glitches and launch failures. Fixed by:
+  - Upgrading to Gradio 4.x
+  - Refactoring the interface to use `gr.ChatInterface()` for smoother UX
+
+- **Python Environment Conflicts**  
+  Conflicting packages and outdated installs led to runtime errors. Solved by:
+  - Creating a clean virtual environment
+  - Generating a clean `requirements.txt` with only essential packages
+
+- **GitHub Authentication Issues**  
+  Encountered push failures due to missing credentials. Fixed by:
+  - Installing Git and configuring username/email
+  - Using a personal access token for HTTPS authentication
+
+- **README Rendering Problems**  
+  Image links and Markdown formatting didn’t display correctly on GitHub. Resolved by:
+  - Creating an `assets/` folder
+  - Renaming and referencing screenshots with clean paths
